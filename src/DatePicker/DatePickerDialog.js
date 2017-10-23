@@ -97,10 +97,14 @@ class DatePickerDialog extends Component {
   };
 
   handleWindowKeyUp = (event) => {
+    event.stopPropagation();
     switch (keycode(event)) {
       case 'enter':
         this.handleTouchTapOk();
         break;
+      case 'tab':
+      case 'esc':
+        this.dismiss();
     }
   };
 
